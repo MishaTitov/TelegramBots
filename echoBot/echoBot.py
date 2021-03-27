@@ -4,9 +4,19 @@ from aiogram import executor
 from config import adminId
 from loader import dp, bot
 
-
+@dp.message_handler(commands=['start', 'help'])
+async def sendWelcome(message: Message):
+    """
+    This handler will be called when user sends `/start` or `/help` command
+    """
+    await message.reply("Hi!\nI'm EchoBot")
+    
+    
 @dp.message_handler()
 async def echo(message: Message):
+    """
+    This echo handler
+    """
     await message.answer(message.text)
 
 
