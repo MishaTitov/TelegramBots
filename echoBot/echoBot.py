@@ -1,6 +1,6 @@
 from aiogram.types import Message
 from aiogram import executor
-
+from settings import setMyCommands
 from config import adminId
 from loader import dp, bot
 
@@ -21,6 +21,7 @@ async def echo(message: Message):
 
 
 async def onStartup(dp):
+    await setMyCommands(dp)
     await bot.send_message(chat_id=adminId, text="Bot activated")
 
 
